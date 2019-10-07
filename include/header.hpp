@@ -4,6 +4,8 @@
 #define INCLUDE_HEADER_HPP_
 
 #include <iostream>
+#include <cstddef>
+#include <memory>
 
 class Stack {
 private:
