@@ -35,7 +35,7 @@ public:
     void push(T &&value) {
         if (num == size) {
             num++;
-            size = 3 * num / 2;
+            size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
             for (size_t i = 0; i < num; i++)
                 buf[i] = data[i];
@@ -50,7 +50,7 @@ public:
     void push(const T &value) {
         if (num == size) {
             num++;
-            size = 3 * num / 2;
+            size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
             for (size_t i = 0; i < num; i++)
                 buf[i] = data[i];
@@ -77,7 +77,7 @@ public:
     void push_emplace(Args &&... value) {
         if (num == size) {
             num++;
-            size = 3 / 2 * num;
+            size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
             for (size_t i = 0; i < num; i++)
                 buf[i] = data[i];
