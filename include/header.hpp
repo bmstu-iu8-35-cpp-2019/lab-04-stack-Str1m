@@ -37,7 +37,7 @@ public:
             num++;
             size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
-            for (size_t i = 0; i < num; i++)
+            for (size_t i = 0; i < num - 1; i++)
                 buf[i] = data[i];
             buf[num - 1] = value;
             data = std::move(buf);
@@ -52,7 +52,7 @@ public:
             num++;
             size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
-            for (size_t i = 0; i < num; i++)
+            for (size_t i = 0; i < num - 1; i++)
                 buf[i] = data[i];
             buf[num] = value;
             data = std::move(buf);
@@ -79,7 +79,7 @@ public:
             num++;
             size = 3 * num / 2 + 1;
             auto buf = std::make_unique<T[]>(size);
-            for (size_t i = 0; i < num; i++)
+            for (size_t i = 0; i < num - 1; i++)
                 buf[i] = data[i];
             buf[num - 1] = T(value ...);
             data = std::move(buf);
