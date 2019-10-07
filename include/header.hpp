@@ -26,8 +26,8 @@ public:
     Stack(Stack<T> &&tmp) noexcept {
         data = std::move(tmp._data);
         tmp._data = nullptr;
-        size = tmp._capacity;
-        num = tmp._size;
+        size = tmp.size;
+        num = tmp.num;
     }
 
     ~Stack() {}
