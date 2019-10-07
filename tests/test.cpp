@@ -33,6 +33,6 @@ TEST(Stack_, Test_3){
     int val = a.head();
     EXPECT_EQ(4, val);
     a.push(5);
-    int val = a.head();
+    val = a.head();
     EXPECT_EQ(5, val);
 }
