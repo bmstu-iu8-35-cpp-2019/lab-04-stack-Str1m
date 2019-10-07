@@ -10,6 +10,7 @@ private:
     size_t num;
     size_t size;
     std::unique_ptr<T[]> data;
+
 public:
     Stack() {
         num = 0;
@@ -92,6 +93,5 @@ public:
             throw std::logic_error("Out of range");
         return data[num];
     }
-
 };
 #endif // INCLUDE_HEADER_HPP_
