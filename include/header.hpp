@@ -7,7 +7,7 @@
 #include <cstddef>
 #include <memory>
 
-template <typename T>
+template<typename T>
 class Stack {
 private:
     size_t num;
@@ -39,11 +39,19 @@ public:
             auto buf = std::make_unique<T[]>(size);
             for (size_t i = 0; i < num - 1; i++)
                 buf[i] = data[i];
-            buf[num - 1] = value;
+            if (std::is_move_assignable<T>()) {
+                buf[num - 1] = std::move(value);
+            } else {
+                buf[num - 1] = value;
+            }
             data = std::move(buf);
         } else {
             num++;
-            data[num - 1] = value;
+            if (std::is_move_assignable<T>()) {
+                data[num - 1] = std::move(value);
+            } else {
+                data[num - 1] = value;
+            }
         }
     }
 
@@ -97,4 +105,5 @@ public:
         return data[num];
     }
 };
+
 #endif // INCLUDE_HEADER_HPP_
